@@ -57,6 +57,27 @@ export default function Machine() {
     }
   };
 
+  const reverseCycleRotors = () => {
+    R1.reverseRotate();
+    R1.position -= 1;
+
+    if (R1.position === -1) {
+      R1.position = 25;
+      R2.reverseRotate();
+      R2.position -= 1;
+    }
+
+    if (R2.position === -1) {
+      R2.position = 25;
+      R3.reverseRotate();
+      R3.position -= 1;
+    }
+
+    if (R3.position === -1) {
+      R3.position = 25;
+    }
+  };
+
   const encrypt = (letter) => {
     let index, output;
 
@@ -81,7 +102,15 @@ export default function Machine() {
   const handleSpace = () => {
     setMessage(message + " ");
   };
-  const handleBackSpace = () => {};
+  const handleBackSpace = () => {
+    if (message.length != 0) {
+      if (message[message.length - 1] !== " ") {
+        reverseCycleRotors();
+      }
+
+      setMessage(message.slice(0, -1));
+    }
+  };
 
   return (
     <div>
@@ -109,12 +138,7 @@ export default function Machine() {
       </button>
 
       <button onClick={handleSpace}>Space</button>
-
-      <div>
-        {letters.map((e) => {
-          return <button>{e}</button>;
-        })}
-      </div>
+      <button onClick={handleBackSpace}>BackSpace</button>
     </div>
   );
 }
