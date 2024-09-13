@@ -78,8 +78,43 @@ export default function Machine() {
     cycleRotors();
   };
 
-  const handleSpace = () => {};
+  const handleSpace = () => {
+    setMessage(message + " ");
+  };
   const handleBackSpace = () => {};
 
-  return;
+  return (
+    <div>
+      <textarea value={message} />
+      <button
+        onClick={() => {
+          handleTyping("Q");
+        }}
+      >
+        Q
+      </button>
+      <button
+        onClick={() => {
+          handleTyping("A");
+        }}
+      >
+        A
+      </button>
+      <button
+        onClick={() => {
+          handleTyping("Z");
+        }}
+      >
+        Z
+      </button>
+
+      <button onClick={handleSpace}>Space</button>
+
+      <div>
+        {letters.map((e) => {
+          return <button>{e}</button>;
+        })}
+      </div>
+    </div>
+  );
 }
