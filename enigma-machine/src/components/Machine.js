@@ -5,6 +5,7 @@ export default function Machine() {
   const [R1, setR1] = useState(new Rotor([]));
   const [R2, setR2] = useState(new Rotor([]));
   const [R3, setR3] = useState(new Rotor([]));
+  const [message, setMessage] = useState("");
 
   const letters = [
     "A",
@@ -35,7 +36,7 @@ export default function Machine() {
     "Z",
   ];
 
-  const handleRotation = () => {
+  const cycleRotors = () => {
     R1.rotate();
     R1.position += 1;
 
@@ -69,6 +70,12 @@ export default function Machine() {
     output = R3.values[index];
 
     return output;
+  };
+
+  const handleTyping = (letter) => {
+    const letterEncrypted = encrypt(letter);
+    setMessage(message + letterEncrypted);
+    cycleRotors();
   };
 
   return;
