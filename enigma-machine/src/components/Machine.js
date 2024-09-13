@@ -1,11 +1,11 @@
 import { useState } from "react";
+import "../style/index.css";
 import Rotor from "../model/Rotor";
 
-export default function Machine() {
+export default function Machine({ message, setMessage }) {
   const [R1, setR1] = useState(new Rotor([]));
   const [R2, setR2] = useState(new Rotor([]));
   const [R3, setR3] = useState(new Rotor([]));
-  const [message, setMessage] = useState("");
 
   const letters = [
     "A",
@@ -114,31 +114,401 @@ export default function Machine() {
 
   return (
     <div>
-      <textarea value={message} />
-      <button
-        onClick={() => {
-          handleTyping("Q");
-        }}
-      >
-        Q
-      </button>
-      <button
-        onClick={() => {
-          handleTyping("A");
-        }}
-      >
-        A
-      </button>
-      <button
-        onClick={() => {
-          handleTyping("Z");
-        }}
-      >
-        Z
-      </button>
+      <div className="rotors">
+      
+      </div>
+      <div className="keyboards">
+        <div className="input-keyboard">
+          <div className="keyboard-topline keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("Q");
+              }}
+            >
+              Q
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("A");
+              }}
+            >
+              W
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("E");
+              }}
+            >
+              E
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("R");
+              }}
+            >
+              R
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("T");
+              }}
+            >
+              T
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("Z");
+              }}
+            >
+              Z
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("U");
+              }}
+            >
+              U
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("I");
+              }}
+            >
+              I
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("O");
+              }}
+            >
+              O
+            </button>
+          </div>
 
-      <button onClick={handleSpace}>Space</button>
-      <button onClick={handleBackSpace}>BackSpace</button>
+          <div className="keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("A");
+              }}
+            >
+              A
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("S");
+              }}
+            >
+              S
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("D");
+              }}
+            >
+              D
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("F");
+              }}
+            >
+              F
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("G");
+              }}
+            >
+              G
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("H");
+              }}
+            >
+              H
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("J");
+              }}
+            >
+              J
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("K");
+              }}
+            >
+              K
+            </button>
+          </div>
+
+          <div className="keyboard-botline keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("P");
+              }}
+            >
+              P
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("Y");
+              }}
+            >
+              Y
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("X");
+              }}
+            >
+              X
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("C");
+              }}
+            >
+              C
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("V");
+              }}
+            >
+              V
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("B");
+              }}
+            >
+              B
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("N");
+              }}
+            >
+              N
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("M");
+              }}
+            >
+              M
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("L");
+              }}
+            >
+              L
+            </button>
+          </div>
+        </div>
+
+        <div className="input-keyboard">
+          <div className="keyboard-topline keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("Q");
+              }}
+            >
+              Q
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("A");
+              }}
+            >
+              W
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("E");
+              }}
+            >
+              E
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("R");
+              }}
+            >
+              R
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("T");
+              }}
+            >
+              T
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("Z");
+              }}
+            >
+              Z
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("U");
+              }}
+            >
+              U
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("I");
+              }}
+            >
+              I
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("O");
+              }}
+            >
+              O
+            </button>
+          </div>
+
+          <div className="keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("A");
+              }}
+            >
+              A
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("S");
+              }}
+            >
+              S
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("D");
+              }}
+            >
+              D
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("F");
+              }}
+            >
+              F
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("G");
+              }}
+            >
+              G
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("H");
+              }}
+            >
+              H
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("J");
+              }}
+            >
+              J
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("K");
+              }}
+            >
+              K
+            </button>
+          </div>
+
+          <div className="keyboard-botline keyboard-line">
+            <button
+              onClick={() => {
+                handleTyping("P");
+              }}
+            >
+              P
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("Y");
+              }}
+            >
+              Y
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("X");
+              }}
+            >
+              X
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("C");
+              }}
+            >
+              C
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("V");
+              }}
+            >
+              V
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("B");
+              }}
+            >
+              B
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("N");
+              }}
+            >
+              N
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("M");
+              }}
+            >
+              M
+            </button>
+            <button
+              onClick={() => {
+                handleTyping("L");
+              }}
+            >
+              L
+            </button>
+          </div>
+
+          <div className="keyboard-line">
+            <button onClick={handleSpace}>Space</button>
+            <button onClick={handleBackSpace}>BackSpace</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

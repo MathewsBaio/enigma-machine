@@ -1,0 +1,73 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 30%;
+  background-color: blue;
+}
+
+.message > textarea {
+  width: 250px;
+  height: 80%;
+}
+
+.machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  height: 100vh;
+  width: 70%;
+  background-color: red;
+}
+
+.rotors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.keyboard-line {
+  display: flex;
+  gap: 15px;
+}
+
+.keyboard-topline {
+  margin-left: 15px;
+}
+
+.keyboard-botline {
+  margin-right: 15px;
+}
