@@ -78,5 +78,8 @@ export default function Machine() {
     cycleRotors();
   };
 
+  const handleSpace = () => {};
+  const handleBackSpace = () => {};
+
   return;
 }
