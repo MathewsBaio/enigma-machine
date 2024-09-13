@@ -114,9 +114,7 @@ export default function Machine({ message, setMessage }) {
 
   return (
     <div>
-      <div className="rotors">
-      
-      </div>
+      <div className="rotors"></div>
       <div className="keyboards">
         <div className="input-keyboard">
           <div className="keyboard-topline keyboard-line">
