@@ -83,12 +83,6 @@ export default function Machine() {
   };
   const handleBackSpace = () => {};
 
-  console.log(R1.values);
-  R1.reverseRotate();
-  console.log(R1.values);
-  R1.rotate();
-  console.log(R1.values);
-
   return (
     <div>
       <textarea value={message} />
