@@ -19,11 +19,11 @@ body {
   justify-content: center;
   height: 100vh;
   width: 30%;
-  background-color: blue;
+  background-color: #3e2a1f;
 }
 
 .message > textarea {
-  width: 250px;
+  width: 25vw;
   height: 80%;
 }
 
@@ -35,7 +35,7 @@ body {
   gap: 25px;
   height: 100vh;
   width: 70%;
-  background-color: red;
+  background-color: #2d2d2d;
 }
 
 .rotors {
@@ -43,6 +43,25 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.rotor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 2vw;
+  background-color: #6c6e6b;
+}
+
+.rotor > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
 }
 
 .keyboards {
@@ -51,12 +70,37 @@ body {
   gap: 25px;
 }
 
+.input-keyboard .keyboard-line button {
+  border: solid 2px #fff;
+  border-radius: 50px;
+  background-color: #1c1c1c;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  color: #fff;
+}
+
 .input-keyboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.output-keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.output-keyboard .keyboard-line button {
+  font-weight: bold;
+  border-radius: 50px;
+  background-color: #1c1c1c;
+  border: solid 2px #1c1c1c;
+
+  color: #fff;
 }
 
 .keyboard-line {
@@ -70,4 +114,10 @@ body {
 
 .keyboard-botline {
   margin-right: 15px;
+}
+
+.input-keyboard .keyboard-line button:active {
+  background-color: #2d2d2d;
+  box-shadow: 0 5px #666;
+  transform: translateY(19px);
 }

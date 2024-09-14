@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/index.css";
 import Rotor from "../model/Rotor";
+import RotorUI from "./base/RotorUI";
 
 export default function Machine({ message, setMessage }) {
   const [R1, setR1] = useState(new Rotor([]));
@@ -114,198 +115,46 @@ export default function Machine({ message, setMessage }) {
 
   return (
     <div>
-      <div className="rotors"></div>
+      <div className="rotors">
+        <RotorUI open="true" rotor={R3} />
+        <RotorUI open="true" rotor={R2} />
+        <RotorUI open="true" rotor={R1} />
+      </div>
       <div className="keyboards">
-        <div className="input-keyboard">
+        <div className="output-keyboard">
           <div className="keyboard-topline keyboard-line">
-            <button
-              onClick={() => {
-                handleTyping("Q");
-              }}
-            >
-              Q
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("A");
-              }}
-            >
-              W
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("E");
-              }}
-            >
-              E
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("R");
-              }}
-            >
-              R
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("T");
-              }}
-            >
-              T
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("Z");
-              }}
-            >
-              Z
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("U");
-              }}
-            >
-              U
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("I");
-              }}
-            >
-              I
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("O");
-              }}
-            >
-              O
-            </button>
+            <button disabled>Q</button>
+            <button disabled>W</button>
+            <button disabled>E</button>
+            <button disabled>R</button>
+            <button disabled>T</button>
+            <button disabled>Z</button>
+            <button disabled>U</button>
+            <button disabled>I</button>
+            <button disabled>O</button>
           </div>
 
           <div className="keyboard-line">
-            <button
-              onClick={() => {
-                handleTyping("A");
-              }}
-            >
-              A
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("S");
-              }}
-            >
-              S
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("D");
-              }}
-            >
-              D
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("F");
-              }}
-            >
-              F
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("G");
-              }}
-            >
-              G
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("H");
-              }}
-            >
-              H
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("J");
-              }}
-            >
-              J
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("K");
-              }}
-            >
-              K
-            </button>
+            <button disabled>A</button>
+            <button disabled>S</button>
+            <button disabled>D</button>
+            <button disabled>F</button>
+            <button disabled>G</button>
+            <button disabled>H</button>
+            <button disabled>J</button>
+            <button disabled>K</button>
           </div>
 
           <div className="keyboard-botline keyboard-line">
-            <button
-              onClick={() => {
-                handleTyping("P");
-              }}
-            >
-              P
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("Y");
-              }}
-            >
-              Y
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("X");
-              }}
-            >
-              X
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("C");
-              }}
-            >
-              C
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("V");
-              }}
-            >
-              V
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("B");
-              }}
-            >
-              B
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("N");
-              }}
-            >
-              N
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("M");
-              }}
-            >
-              M
-            </button>
-            <button
-              onClick={() => {
-                handleTyping("L");
-              }}
-            >
-              L
-            </button>
+            <button disabled>P</button>
+            <button disabled>Y</button>
+            <button disabled>X</button>
+            <button disabled>C</button>
+            <button disabled>V</button>
+            <button disabled>B</button>
+            <button disabled>N</button>
+            <button disabled>M</button>
+            <button disabled>L</button>
           </div>
         </div>
 
