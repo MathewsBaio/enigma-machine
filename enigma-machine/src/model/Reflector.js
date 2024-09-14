@@ -1,4 +1,4 @@
-export default class Rotor {
+export default class Reflector {
   constructor(array) {
     if (array.length === 26) {
       this.values = array;
@@ -32,23 +32,5 @@ export default class Rotor {
         "A",
       ];
     }
-
-    this.position = 0;
-  }
-
-  rotate() {
-    let aux = this.values[this.values.length - 1];
-    for (let i = this.values.length - 1; i > 0; i--) {
-      this.values[i] = this.values[i - 1];
-    }
-    this.values[0] = aux;
-  }
-
-  reverseRotate() {
-    let aux = this.values[0];
-    for (let i = 0; i < this.values.length - 1; i++) {
-      this.values[i] = this.values[i + 1];
-    }
-    this.values[this.values.length - 1] = aux;
   }
 }

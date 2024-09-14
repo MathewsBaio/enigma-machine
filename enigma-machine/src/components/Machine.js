@@ -2,11 +2,13 @@ import { useState } from "react";
 import "../style/index.css";
 import Rotor from "../model/Rotor";
 import RotorUI from "./base/RotorUI";
+import Reflector from "../model/Reflector";
 
 export default function Machine({ message, setMessage }) {
   const [R1, setR1] = useState(new Rotor([]));
   const [R2, setR2] = useState(new Rotor([]));
   const [R3, setR3] = useState(new Rotor([]));
+  const UKW = new Reflector([]);
 
   const letters = [
     "A",
@@ -90,6 +92,19 @@ export default function Machine({ message, setMessage }) {
 
     index = letters.findIndex((e) => e === output.toUpperCase());
     output = R3.values[index];
+
+    // Reflector
+    index = letters.findIndex((e) => e === output.toUpperCase());
+    output = UKW.values[index];
+
+    index = letters.findIndex((e) => e === output.toUpperCase());
+    output = R3.values[index];
+
+    index = letters.findIndex((e) => e === output.toUpperCase());
+    output = R2.values[index];
+
+    index = letters.findIndex((e) => e === output.toUpperCase());
+    output = R1.values[index];
 
     return output;
   };
