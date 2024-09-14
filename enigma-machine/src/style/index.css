@@ -54,6 +54,27 @@ body {
   justify-content: center;
   width: 2vw;
   background-color: #6c6e6b;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.top-rotor-btn {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #6c6e6b;
+  color: #1c1c1c;
+  border: 0;
+}
+
+.bot-rotor-btn {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #6c6e6b;
+  color: #1c1c1c;
+  border: 0;
 }
 
 .rotor > button {
@@ -119,5 +140,5 @@ body {
 .input-keyboard .keyboard-line button:active {
   background-color: #2d2d2d;
   box-shadow: 0 5px #666;
-  transform: translateY(19px);
+  transform: translateY(4px);
 }
