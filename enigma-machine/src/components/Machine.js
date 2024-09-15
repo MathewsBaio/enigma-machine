@@ -1,17 +1,17 @@
 import { useRef, useState } from "react";
 import "../style/index.css";
-import Rotor from "../model/Rotor";
 import RotorUI from "./base/RotorUI";
-import Reflector from "../model/Reflector";
 import { I, II, III, IV, V } from "../model/parts/Rotors";
 import { reflectorB, reflectorC } from "../model/parts/Reflectors";
+import Rotor from "../model/Rotor";
 
 export default function Machine({ message, setMessage }) {
-  const [R1, setR1] = useState(I);
-  const [R2, setR2] = useState(II);
-  const [R3, setR3] = useState(III);
+  const [R1, setR1] = useState(new Rotor(I.values, I.reverseValues));
+  const [R2, setR2] = useState(new Rotor(II.values, II.reverseValues));
+  const [R3, setR3] = useState(new Rotor(III.values, III.reverseValues));
   const UKW = reflectorC;
   const audioRef = useRef(null);
+  const audioRef2 = useRef(null);
 
   const letters = [
     "A",
@@ -62,14 +62,14 @@ export default function Machine({ message, setMessage }) {
     if (R1.position === 26) {
       R1.position = 0;
       R2.rotate();
-
+      audioRef2.current.play();
       R2.position += 1;
     }
 
     if (R2.position === 26) {
       R2.position = 0;
       R3.rotate();
-
+      audioRef2.current.play();
       R3.position += 1;
     }
 
@@ -140,7 +140,7 @@ export default function Machine({ message, setMessage }) {
     playAudio();
     setTimeout(() => {
       stopAudio();
-    }, 290);
+    }, 200);
     cycleRotors();
   };
 
@@ -148,7 +148,7 @@ export default function Machine({ message, setMessage }) {
     playAudio();
     setTimeout(() => {
       stopAudio();
-    }, 290);
+    }, 200);
     setMessage(message + " ");
   };
   const handleBackSpace = () => {
@@ -159,7 +159,7 @@ export default function Machine({ message, setMessage }) {
       playAudio();
       setTimeout(() => {
         stopAudio();
-      }, 290);
+      }, 200);
       setMessage(message.slice(0, -1));
     }
   };
@@ -169,10 +169,13 @@ export default function Machine({ message, setMessage }) {
       <audio ref={audioRef}>
         <source src="../../audio/typesound.mp3" type="audio/mpeg" />
       </audio>
+      <audio ref={audioRef2}>
+        <source src="../../audio/rotorsound.mp3" type="audio/mpeg" />
+      </audio>
       <div className="rotors">
-        <RotorUI open="true" rotor={R3} />
-        <RotorUI open="true" rotor={R2} />
-        <RotorUI open="true" rotor={R1} />
+        <RotorUI open="true" rotor={R3} setRotor={setR3} />
+        <RotorUI open="true" rotor={R2} setRotor={setR2} />
+        <RotorUI open="true" rotor={R1} setRotor={setR1} />
       </div>
       <div className="keyboards">
         <div className="output-keyboard">
