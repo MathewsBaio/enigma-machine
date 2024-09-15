@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../style/index.css";
 import Rotor from "../model/Rotor";
 import RotorUI from "./base/RotorUI";
 import Reflector from "../model/Reflector";
+import { I, II, III, IV, V } from "../model/parts/Rotors";
+import { reflectorB, reflectorC } from "../model/parts/Reflectors";
 
 export default function Machine({ message, setMessage }) {
-  const [R1, setR1] = useState(new Rotor([]));
-  const [R2, setR2] = useState(new Rotor([]));
-  const [R3, setR3] = useState(new Rotor([]));
-  const UKW = new Reflector([]);
+  const [R1, setR1] = useState(I);
+  const [R2, setR2] = useState(II);
+  const [R3, setR3] = useState(III);
+  const UKW = reflectorC;
+  const audioRef = useRef(null);
 
   const letters = [
     "A",
@@ -39,6 +42,19 @@ export default function Machine({ message, setMessage }) {
     "Z",
   ];
 
+  const playAudio = () => {
+    audioRef.current.play();
+  };
+
+  const pauseAudio = () => {
+    audioRef.current.pause();
+  };
+
+  const stopAudio = () => {
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+  };
+
   const cycleRotors = () => {
     R1.rotate();
     R1.position += 1;
@@ -46,12 +62,14 @@ export default function Machine({ message, setMessage }) {
     if (R1.position === 26) {
       R1.position = 0;
       R2.rotate();
+
       R2.position += 1;
     }
 
     if (R2.position === 26) {
       R2.position = 0;
       R3.rotate();
+
       R3.position += 1;
     }
 
@@ -83,28 +101,35 @@ export default function Machine({ message, setMessage }) {
 
   const encrypt = (letter) => {
     let index, output;
-
+    console.log(`usuario digitou ${letter}`);
     index = letters.findIndex((e) => e === letter.toUpperCase());
     output = R1.values[index];
+    console.log(`rotor 1 transformou para ${output}`);
 
     index = letters.findIndex((e) => e === output.toUpperCase());
     output = R2.values[index];
+    console.log(`rotor 2 transformou para ${output}`);
 
     index = letters.findIndex((e) => e === output.toUpperCase());
     output = R3.values[index];
+    console.log(`rotor 3 transformou para ${output}`);
 
     // Reflector
     index = letters.findIndex((e) => e === output.toUpperCase());
     output = UKW.values[index];
+    console.log(`refletor transformou para ${output}`);
 
     index = letters.findIndex((e) => e === output.toUpperCase());
-    output = R3.values[index];
+    output = R3.reverseValues[index];
+    console.log(`rotor 3 transformou para ${output}`);
 
     index = letters.findIndex((e) => e === output.toUpperCase());
-    output = R2.values[index];
+    output = R2.reverseValues[index];
+    console.log(`rotor 2 transformou para ${output}`);
 
     index = letters.findIndex((e) => e === output.toUpperCase());
-    output = R1.values[index];
+    output = R1.reverseValues[index];
+    console.log(`rotor 1 transformou para ${output}`);
 
     return output;
   };
@@ -112,10 +137,18 @@ export default function Machine({ message, setMessage }) {
   const handleTyping = (letter) => {
     const letterEncrypted = encrypt(letter);
     setMessage(message + letterEncrypted);
+    playAudio();
+    setTimeout(() => {
+      stopAudio();
+    }, 290);
     cycleRotors();
   };
 
   const handleSpace = () => {
+    playAudio();
+    setTimeout(() => {
+      stopAudio();
+    }, 290);
     setMessage(message + " ");
   };
   const handleBackSpace = () => {
@@ -123,13 +156,19 @@ export default function Machine({ message, setMessage }) {
       if (message[message.length - 1] !== " ") {
         reverseCycleRotors();
       }
-
+      playAudio();
+      setTimeout(() => {
+        stopAudio();
+      }, 290);
       setMessage(message.slice(0, -1));
     }
   };
 
   return (
     <div>
+      <audio ref={audioRef}>
+        <source src="../../audio/typesound.mp3" type="audio/mpeg" />
+      </audio>
       <div className="rotors">
         <RotorUI open="true" rotor={R3} />
         <RotorUI open="true" rotor={R2} />
@@ -184,7 +223,7 @@ export default function Machine({ message, setMessage }) {
             </button>
             <button
               onClick={() => {
-                handleTyping("A");
+                handleTyping("W");
               }}
             >
               W
