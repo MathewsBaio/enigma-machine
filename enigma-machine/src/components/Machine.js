@@ -285,7 +285,7 @@ export default function Machine({ message, setMessage }) {
             <button disabled className={lights.X}>
               X
             </button>
-            <button disabled className={lights.E}>
+            <button disabled className={lights.C}>
               C
             </button>
             <button disabled className={lights.V}>
