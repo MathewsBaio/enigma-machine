@@ -139,6 +139,13 @@ body {
   margin-right: 15px;
 }
 
+.on {
+  color: yellow !important;
+  box-shadow: 0 0 15px 5px yellow;
+  text-shadow: 0 0 10px yellow;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 .input-keyboard .keyboard-line button:active {
   background-color: #2d2d2d;
   box-shadow: 0 5px #666;

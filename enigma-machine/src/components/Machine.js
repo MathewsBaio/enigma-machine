@@ -9,6 +9,34 @@ export default function Machine({ message, setMessage }) {
   const [R1, setR1] = useState(new Rotor(I.values, I.reverseValues));
   const [R2, setR2] = useState(new Rotor(II.values, II.reverseValues));
   const [R3, setR3] = useState(new Rotor(III.values, III.reverseValues));
+  const [lights, setLights] = useState({
+    A: "",
+    B: "",
+    C: "",
+    D: "",
+    E: "",
+    F: "",
+    G: "",
+    H: "",
+    I: "",
+    J: "",
+    K: "",
+    L: "",
+    M: "",
+    N: "",
+    O: "",
+    P: "",
+    Q: "",
+    R: "",
+    S: "",
+    T: "",
+    U: "",
+    V: "",
+    W: "",
+    X: "",
+    Y: "",
+    Z: "",
+  });
   const UKW = reflectorC;
   const audioRef = useRef(null);
   const audioRef2 = useRef(null);
@@ -137,10 +165,21 @@ export default function Machine({ message, setMessage }) {
   const handleTyping = (letter) => {
     const letterEncrypted = encrypt(letter);
     setMessage(message + letterEncrypted);
+    setLights((prevLights) => ({
+      ...prevLights,
+      [letterEncrypted]: "on",
+    }));
     playAudio();
     setTimeout(() => {
       stopAudio();
     }, 200);
+
+    setTimeout(() => {
+      setLights((prevLights) => ({
+        ...prevLights,
+        [letterEncrypted]: "",
+      }));
+    }, 500);
     cycleRotors();
   };
 
@@ -180,38 +219,90 @@ export default function Machine({ message, setMessage }) {
       <div className="keyboards">
         <div className="output-keyboard">
           <div className="keyboard-topline keyboard-line">
-            <button disabled>Q</button>
-            <button disabled>W</button>
-            <button disabled>E</button>
-            <button disabled>R</button>
-            <button disabled>T</button>
-            <button disabled>Z</button>
-            <button disabled>U</button>
-            <button disabled>I</button>
-            <button disabled>O</button>
+            <button disabled className={lights.Q}>
+              Q
+            </button>
+            <button disabled className={lights.W}>
+              W
+            </button>
+            <button disabled className={lights.E}>
+              E
+            </button>
+            <button disabled className={lights.R}>
+              R
+            </button>
+            <button disabled className={lights.T}>
+              T
+            </button>
+            <button disabled className={lights.Z}>
+              Z
+            </button>
+            <button disabled className={lights.U}>
+              U
+            </button>
+            <button disabled className={lights.I}>
+              I
+            </button>
+            <button disabled className={lights.O}>
+              O
+            </button>
           </div>
 
           <div className="keyboard-line">
-            <button disabled>A</button>
-            <button disabled>S</button>
-            <button disabled>D</button>
-            <button disabled>F</button>
-            <button disabled>G</button>
-            <button disabled>H</button>
-            <button disabled>J</button>
-            <button disabled>K</button>
+            <button disabled className={lights.A}>
+              A
+            </button>
+            <button disabled className={lights.S}>
+              S
+            </button>
+            <button disabled className={lights.D}>
+              D
+            </button>
+            <button disabled className={lights.F}>
+              F
+            </button>
+            <button disabled className={lights.G}>
+              G
+            </button>
+            <button disabled className={lights.H}>
+              H
+            </button>
+            <button disabled className={lights.J}>
+              J
+            </button>
+            <button disabled className={lights.K}>
+              K
+            </button>
           </div>
 
           <div className="keyboard-botline keyboard-line">
-            <button disabled>P</button>
-            <button disabled>Y</button>
-            <button disabled>X</button>
-            <button disabled>C</button>
-            <button disabled>V</button>
-            <button disabled>B</button>
-            <button disabled>N</button>
-            <button disabled>M</button>
-            <button disabled>L</button>
+            <button disabled className={lights.P}>
+              P
+            </button>
+            <button disabled className={lights.Y}>
+              Y
+            </button>
+            <button disabled className={lights.X}>
+              X
+            </button>
+            <button disabled className={lights.E}>
+              C
+            </button>
+            <button disabled className={lights.V}>
+              V
+            </button>
+            <button disabled className={lights.B}>
+              B
+            </button>
+            <button disabled className={lights.N}>
+              N
+            </button>
+            <button disabled className={lights.M}>
+              M
+            </button>
+            <button disabled className={lights.L}>
+              L
+            </button>
           </div>
         </div>
 
