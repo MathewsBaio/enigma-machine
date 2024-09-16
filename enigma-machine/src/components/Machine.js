@@ -499,8 +499,8 @@ export default function Machine({ message, setMessage }) {
           </div>
 
           <div className="keyboard-line">
-            <button onClick={handleSpace}>Space</button>
-            <button onClick={handleBackSpace}>BackSpace</button>
+            <button onClick={handleSpace}>⌷</button>
+            <button onClick={handleBackSpace}>←</button>
           </div>
         </div>
       </div>

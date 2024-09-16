@@ -14,7 +14,7 @@ body {
   height: 100vh;
 }
 
-.message {
+.side-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,9 +24,50 @@ body {
   background-color: #1c1c1c;
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+  width: 100%;
+  background-color: #090909;
+}
+
+.menu-btn {
+  width: 1rem;
+  margin: 5px;
+}
+
+.menu-btn:hover {
+  fill: #666;
+}
+
+.menu-btn.selected {
+  fill: gray;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 92%;
+  width: 30%;
+}
+
 .message > textarea {
-  width: 25vw;
+  width: 12rem;
   height: 80%;
+}
+
+.config {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  width: 30%;
+  background-color: #1c1c1c;
 }
 
 .machine {
@@ -178,6 +219,12 @@ body {
   gap: 15px;
 }
 
+.special-keyboard-line {
+  display: flex;
+  gap: 15px;
+  margin: 0;
+}
+
 .keyboard-topline {
   margin-left: 15px;
 }
@@ -191,6 +238,33 @@ body {
   box-shadow: 0 0 15px 5px yellow;
   text-shadow: 0 0 10px yellow;
   transition: box-shadow 0.3s ease-in-out;
+}
+
+.plugboard {
+  margin-bottom: 10px;
+}
+
+.plugboard-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.plug-element > p {
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 0.5rem;
+}
+
+.plug-element > button {
+  margin-top: 0;
+  width: 0.5rem;
+  height: 0.6rem;
+  border-radius: 25px;
+  border: 0;
 }
 
 .input-keyboard .keyboard-line button:active {
