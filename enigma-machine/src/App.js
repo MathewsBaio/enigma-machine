@@ -8,15 +8,42 @@ import Config from "./components/Config";
 function App() {
   const [message, setMessage] = useState("");
   const [encryptedMessage, setEncryptedMessage] = useState("");
-  const [configShowing, setConfigShowing] = useState(true);
+  const [configShowing, setConfigShowing] = useState(false);
+  const [btnSelection, setBtnSelection] = useState({
+    msg: "selected",
+    config: "",
+  });
 
+  const handleMsg = () => {
+    if (configShowing) {
+      setConfigShowing(false);
+      setBtnSelection({
+        msg: "selected",
+        config: "",
+      });
+    }
+  };
+
+  const handleConfig = () => {
+    if (!configShowing) {
+      setConfigShowing(true);
+      setBtnSelection({
+        msg: "",
+        config: "selected",
+      });
+    }
+  };
   return (
     <div className="container">
       <div className="machine">
         <Machine message={message} setMessage={setMessage} />
       </div>
       <div className="side-container">
-        <Menu />
+        <Menu
+          handleConfig={handleConfig}
+          handleMsg={handleMsg}
+          handleBtn={btnSelection}
+        />
         {configShowing ? (
           <div className="config">
             <Config message={message} setMessage={setMessage} />

@@ -40,11 +40,11 @@ body {
 }
 
 .menu-btn:hover {
-  fill: #666;
+  fill: #b4b4b4;
 }
 
 .menu-btn.selected {
-  fill: gray;
+  fill: #fff;
 }
 
 .message {
@@ -244,7 +244,7 @@ body {
 .config-gearbox {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 5rem;
   width: 12rem;
   margin: 5px;
@@ -253,6 +253,11 @@ body {
 }
 
 .configuration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 0.5rem;
 }
 
 .configuration > h1 {
