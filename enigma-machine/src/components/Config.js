@@ -1,7 +1,7 @@
 import Plugboard from "./base/Plugboard";
 import Gearbox from "./base/Gearbox";
 
-function Config() {
+export default function Config() {
   return (
     <div>
       <Gearbox />
