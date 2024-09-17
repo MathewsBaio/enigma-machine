@@ -259,6 +259,7 @@ body {
   align-items: flex-start;
   flex-direction: column;
   font-size: 0.5rem;
+  gap: 5px;
 }
 
 .configuration > h1 {
@@ -272,9 +273,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 5px;
+  width: 4rem;
 }
 
 .configuration-options > select {
+  align-self: flex-end;
   width: 2rem;
   height: 1rem;
   font-size: 0.5rem;
