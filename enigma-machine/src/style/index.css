@@ -35,6 +35,7 @@ body {
 }
 
 .menu-btn {
+  cursor: pointer;
   width: 1rem;
   margin: 5px;
 }
@@ -245,8 +246,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 5rem;
-  width: 12rem;
+  height: 10rem;
+  width: 13.7rem;
   margin: 5px;
   background-color: #2d2d2d;
   color: #fff;
@@ -254,13 +255,28 @@ body {
 
 .configuration {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-direction: column;
   font-size: 0.5rem;
 }
 
 .configuration > h1 {
+  font-size: 0.5rem;
+}
+
+.configuration > label {
+}
+
+.configuration-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.configuration-options > select {
+  width: 2rem;
+  height: 1rem;
   font-size: 0.5rem;
 }
 
