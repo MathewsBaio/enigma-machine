@@ -18,7 +18,7 @@ export default function RotorUI({ rotor, setRotor, open }) {
       audioRef2.current.play();
     }
 
-    setRotor(newRotor);
+    setRotor(newRotor); // hello
   };
 
   const handleBotRotor = (rotor) => {
